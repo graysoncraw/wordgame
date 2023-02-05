@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <center>
+        <font face="Helvetica">
+        <head>
+            <link rel="stylesheet" href="styling.css">
+            <h1>
+                Word Game  
+            </h1>
+        </head>
+        <script>
+            var word = "";
+            const validWordList = ["CAUSE", "SAUCE", "ACES", "CASE", "CUES", "ECUS", "ACE", "CUE", "ECU", "SAC",
+            "SAE", "SAU", "SEA", "SEC", "SUE", "USE", "AE", "AS", "ES", "US"];
+            function appendLetter(letter){
+                if (letter == "create"){
+                    createWord(word);
+                }
+                else{
+                    word += letter;
+                }
+            }
+
+            function createWord(wordString){
+                if (validWordList.includes(wordString)){
+                    putTextOnScreen(wordString + " is valid");                  
+                }
+                else{
+                    putTextOnScreen(wordString + " is invalid");                    
+                }
+            }
+
+            function putTextOnScreen(wordString){
+                var p = document.createElement("p");
+                p.style.textAlign = "center";
+                p.style.fontSize = "20px";
+                var text = document.createTextNode(wordString);
+                p.appendChild(text);
+                document.body.appendChild(p);
+                word = "";
+            }
+
+        </script>
+        <body bgcolor="#90d5e8">
+            <table>
+                <tr>
+                    <td>
+                        <button type="Sbtn" name="SauceS" id="SauceS" class="buttonblock" onclick="javascript:appendLetter('S')">S</button>
+                    </td>
+                    <td>
+                        <button type="Abtn" name="SauceA" id="SauceA" class="buttonblock" onclick="javascript:appendLetter('A')">A</button>
+                    </td>
+                    <td>
+                        <button type="Ubtn" name="SauceU" id="SauceU" class="buttonblock" onclick="javascript:appendLetter('U')">U</button>
+                    </td>
+                    <td>
+                        <button type="Cbtn" name="SauceC" id="SauceC" class="buttonblock" onclick="javascript:appendLetter('C')">C</button>
+                    </td>
+                    <td>
+                        <button type="Ebtn" name="SauceE" id="SauceE" class="buttonblock" onclick="javascript:appendLetter('E')">E</button>
+                    </td>
+                </tr>
+            </table>
+            <button type="createbtn" name="create" id="create" class="createbuttonblock" onclick="javascript:appendLetter('create')">Create New Word</button>
+        </body>
+    </font>
+    </center>
+</html>
